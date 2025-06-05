@@ -11,7 +11,7 @@ import HeaderCart from './HeaderCart.vue'
       </h1>
       <!-- 导航栏渲染 -->
       <ul class="app-header-nav">
-        <li class="home" v-for="item in resdata" :key="item.id">
+        <li class="home" v-for="item in categoryDate.$state.resdata" :key="item.id">
           <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
       </ul>
@@ -29,20 +29,17 @@ import HeaderCart from './HeaderCart.vue'
 <script setup>
 import { ref,onMounted } from 'vue'
 import { getCategory } from '@/apis/layout';
+import { useCategoryStore } from '@/stores/category'
 
+// const resdata = ref()
 
-const resdata = ref()
+// const categoryDate = async () => {
+//   const res = await getCategory()
+//   console.log(res.result);
+//   resdata.value = res.result
+// }
+const categoryDate = useCategoryStore()
 
-const categoryDate = async () => {
-  const res = await getCategory()
-  console.log(res.result);
-  resdata.value = res.result
-
-}
-
-onMounted(() => {
-  categoryDate()
-})
 </script>
 
 <style scoped lang='scss'>
