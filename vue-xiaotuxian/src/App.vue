@@ -1,8 +1,10 @@
 <template>
 <div>
-<el-button type="primary">Primary</el-button>
+<RouterView/>
 </div>
 </template>
 
-<script setup></script>
+<script setup>
+
+</script>
 <style></style>
